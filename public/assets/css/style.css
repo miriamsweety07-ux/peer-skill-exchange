@@ -1,0 +1,345 @@
+/* SkillSwap -- Peer-to-Peer Skill Exchange Platform
+   Theme: "Community" -- burnt-orange/teal per GROUNDRULES.md section 0.
+
+   The two brand colors are not interchangeable decoration: they encode the
+   product's whole thesis, that every Member is both sides of a trade.
+       EMBER (burnt orange) = what you OFFER -- skills you teach, and every
+                              primary action you initiate.
+       TEAL                  = what you RECEIVE -- skills you want to learn,
+                              and a session the other side has confirmed.
+   Neutrals are warm stone rather than cold slate, so the ember reads as
+   part of the same family instead of fighting a blue-grey ground. Headings
+   stay ink, never brand-colored, so the accents mean something where they
+   do appear. */
+
+:root {
+    /* Ember -- the "offer" side of the trade, and primary actions. */
+    --ss-primary-900: #6b2410;
+    --ss-primary-700: #a83a16;
+    --ss-primary-600: #c2481c;
+    --ss-primary-100: #fbe0d0;
+    --ss-primary-50:  #fdf4ee;
+
+    /* Teal -- the "receive" side, and confirmed state. */
+    --ss-teal-900: #0f3f3c;
+    --ss-teal-700: #0f766e;
+    --ss-teal-600: #14837a;
+    --ss-teal-100: #d3f2ec;
+
+    /* Warm stone neutrals (was cold slate). */
+    --ss-ink-900: #1c1917;
+    --ss-ink-700: #44403c;
+    --ss-ink-500: #78716c;
+    --ss-ink-300: #d6d3d1;
+    --ss-ink-100: #f5f3f1;
+
+    --ss-green: #15803d;
+    --ss-red: #b3261e;
+    --ss-amber: #8a5a1b;
+    --ss-sand: #f5e7d0;
+
+    --ss-bg: #faf8f6;
+    --ss-surface: #ffffff;
+    --ss-border: #e7e3df;
+
+    /* Bootstrap 5.3 components (.card, .text-muted, ...) re-read Bootstrap's
+       own variables rather than inheriting from body, so setting the warm
+       ink only on `body` left every card interior on Bootstrap's default
+       cool grey (#212529) -- i.e. almost all the content on the site. Point
+       Bootstrap's variables at the same warm stone scale. */
+    --bs-body-color: #1c1917;
+    --bs-secondary-color: #78716c;
+    --bs-heading-color: #1c1917;
+    --ss-radius: 10px;
+    --ss-shadow: 0 1px 2px rgba(28, 25, 23, 0.05), 0 4px 14px rgba(28, 25, 23, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    background: var(--ss-bg);
+    color: var(--ss-ink-900);
+    font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.97rem;
+}
+
+h1, h2, h3, h4, h5, .stat-value, .page-title {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.breadcrumb { font-size: 0.85rem; margin-bottom: 0; }
+.breadcrumb-item a { color: var(--ss-primary-700); text-decoration: none; font-weight: 600; }
+.breadcrumb-item a:hover { color: var(--ss-primary-900); text-decoration: underline; }
+.breadcrumb-item.active { color: var(--ss-ink-500); }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--ss-ink-300); }
+
+.page-title { color: var(--ss-ink-900); font-weight: 700; margin-bottom: 0.15rem; }
+.page-subtitle { color: var(--ss-ink-500); margin-bottom: 1.25rem; }
+.section-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    color: var(--ss-ink-900);
+    margin: 1.75rem 0 0.85rem;
+    font-size: 1.2rem;
+}
+
+a { color: var(--ss-primary-700); }
+a:hover { color: var(--ss-primary-900); }
+
+/* ---------- Navbar ---------- */
+.skillswap-navbar {
+    background: var(--ss-primary-900);
+    box-shadow: var(--ss-shadow);
+    padding: 0.65rem 0;
+}
+.skillswap-navbar .navbar-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+}
+.skillswap-navbar .nav-link {
+    color: rgba(255,255,255,0.78);
+    font-weight: 600;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+}
+.skillswap-navbar .nav-link:hover { color: #fff; }
+.skillswap-navbar .nav-link.active {
+    color: #fff;
+    background: rgba(255,255,255,0.14);
+}
+.navbar-user .user-name { color: #fff; font-weight: 600; font-size: 0.9rem; }
+.user-role-badge {
+    background: var(--ss-primary-600);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* ---------- Buttons ---------- */
+.btn-burnt {
+    background: var(--ss-primary-700);
+    border-color: var(--ss-primary-700);
+    color: #fff;
+    font-weight: 600;
+}
+.btn-burnt:hover { background: var(--ss-primary-900); border-color: var(--ss-primary-900); color: #fff; }
+.btn-outline-burnt {
+    border-color: var(--ss-primary-700);
+    color: var(--ss-primary-700);
+    font-weight: 600;
+}
+.btn-outline-burnt:hover { background: var(--ss-primary-700); color: #fff; }
+.btn-teal {
+    background: var(--ss-teal-700);
+    border-color: var(--ss-teal-700);
+    color: #fff;
+    font-weight: 600;
+}
+.btn-teal:hover { background: var(--ss-teal-900); border-color: var(--ss-teal-900); color: #fff; }
+.btn-outline-teal {
+    border-color: var(--ss-teal-700);
+    color: var(--ss-teal-700);
+    font-weight: 600;
+}
+.btn-outline-teal:hover { background: var(--ss-teal-700); color: #fff; }
+
+/* ---------- Cards / surfaces ---------- */
+.card {
+    border: 1px solid var(--ss-border);
+    border-radius: var(--ss-radius);
+    box-shadow: var(--ss-shadow);
+}
+.card-header {
+    background: var(--ss-surface);
+    border-bottom: 1px solid var(--ss-border);
+    font-weight: 700;
+    color: var(--ss-ink-900);
+    border-top-left-radius: var(--ss-radius) !important;
+    border-top-right-radius: var(--ss-radius) !important;
+}
+
+/* ---------- Stat tiles ---------- */
+.stat-tile {
+    background: var(--ss-surface);
+    border: 1px solid var(--ss-border);
+    border-radius: var(--ss-radius);
+    padding: 1rem 1.1rem;
+    box-shadow: var(--ss-shadow);
+    height: 100%;
+    border-left: 3px solid var(--ss-primary-600);
+}
+.stat-label { color: var(--ss-ink-500); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 700; }
+.stat-value { font-size: 1.65rem; font-weight: 700; color: var(--ss-ink-900); margin-top: 0.1rem; }
+
+/* ---------- Status badges (session state machine) ----------
+   Colour carries the state, not brand flavour. `requested` is the only
+   state nobody has acted on yet, so it's the only tinted/outlined one --
+   it must not read as loud as a solid ember button, or a waiting request
+   looks like a call to action. */
+.badge-status-requested {
+    background: var(--ss-sand);
+    color: var(--ss-amber);
+    border: 1px solid #e4d2b3;
+}
+.badge-status-confirmed { background: var(--ss-teal-700); color: #fff; }
+.badge-status-declined  { background: var(--ss-ink-500); color: #fff; }
+.badge-status-cancelled { background: var(--ss-red); color: #fff; }
+.badge-status-completed { background: var(--ss-green); color: #fff; }
+
+/* Dependency/availability lock marker -- shown where an action is
+   deliberately unavailable (a teaching skill with live sessions on it, a
+   request whose counterpart is deactivated or whose slot has passed). */
+.badge-locked {
+    background: var(--ss-ink-100);
+    color: var(--ss-ink-700);
+    border: 1px dashed var(--ss-ink-300);
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+/* ---------- Proficiency badges ---------- */
+.badge-proficiency {
+    background: var(--ss-teal-100);
+    color: var(--ss-teal-900);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Match cards ---------- */
+.match-card {
+    border: 1px solid var(--ss-border);
+    border-radius: var(--ss-radius);
+    background: var(--ss-surface);
+    padding: 1rem 1.15rem;
+    box-shadow: var(--ss-shadow);
+    height: 100%;
+}
+/* Signature element: the exchange mark. A mutual match is the one place in
+   the product where the trade genuinely runs both ways, so it gets the one
+   component that uses both brand colors at once -- an ember cap (what you
+   give) against a teal body (what you get), joined by a swap glyph. Every
+   other surface stays single-accent so this stays the memorable one. */
+.mutual-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    border-radius: 999px;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    background: var(--ss-teal-700);
+    color: #fff;
+    padding-right: 0.6rem;
+}
+.mutual-badge::before {
+    content: "\21C4";               /* two-way arrows */
+    background: var(--ss-primary-700);
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1;
+    padding: 0.34rem 0.45rem;
+    margin-right: 0.5rem;
+    letter-spacing: 0;
+}
+
+/* ---------- Skill taxonomy chips ---------- */
+.skill-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--ss-primary-50);
+    border: 1px solid var(--ss-primary-100);
+    color: var(--ss-primary-900);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+.skill-chip.chip-teal {
+    background: var(--ss-teal-100);
+    border-color: var(--ss-teal-100);
+    color: var(--ss-teal-900);
+}
+
+/* ---------- Chat ---------- */
+.chat-thread {
+    height: 360px;
+    overflow-y: auto;
+    background: var(--ss-ink-100);
+    border: 1px solid var(--ss-border);
+    border-radius: var(--ss-radius);
+    padding: 1rem;
+}
+.chat-bubble {
+    max-width: 75%;
+    padding: 0.55rem 0.85rem;
+    border-radius: 14px;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+}
+.chat-bubble .chat-meta { font-size: 0.7rem; opacity: 0.75; margin-bottom: 0.15rem; }
+.chat-bubble-mine {
+    background: var(--ss-teal-700);
+    color: #fff;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+.chat-bubble-theirs {
+    background: #fff;
+    border: 1px solid var(--ss-border);
+    color: var(--ss-ink-900);
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+}
+
+/* ---------- Login ---------- */
+.login-shell {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ss-primary-900);
+    padding: 2rem 1rem;
+}
+.login-card {
+    background: var(--ss-surface);
+    border-radius: 14px;
+    padding: 2.25rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.35);
+}
+.login-brand { text-align: center; margin-bottom: 1.5rem; }
+.login-brand h1 { font-size: 1.7rem; font-weight: 700; margin: 0.25rem 0 0; color: var(--ss-ink-900); }
+.login-tagline { color: var(--ss-ink-500); font-size: 0.85rem; margin-bottom: 0; }
+.login-register-link { text-align: center; font-size: 0.86rem; color: var(--ss-ink-700); margin: 1rem 0 0; }
+.demo-creds { margin-top: 1.5rem; border-top: 1px dashed var(--ss-border); padding-top: 1rem; font-size: 0.8rem; }
+.demo-creds table td { padding: 0.25rem 0.4rem; vertical-align: middle; }
+
+/* ---------- Tabs ---------- */
+.nav-tabs .nav-link { color: var(--ss-ink-700); font-weight: 600; }
+.nav-tabs .nav-link.active { color: var(--ss-primary-700); border-bottom: 2px solid var(--ss-primary-600); }
+
+/* ---------- Error pages ---------- */
+.error-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--ss-primary-900); }
+.error-card { background: var(--ss-surface); border-radius: 12px; padding: 3rem 2.5rem; text-align: center; max-width: 420px; }
+.error-card h1 { font-size: 3rem; color: var(--ss-primary-700); font-weight: 700; }
+
+/* ---------- Footer ---------- */
+.site-footer { text-align: center; padding: 1.5rem 0 2.5rem; color: var(--ss-ink-500); font-size: 0.82rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767px) {
+    .stat-value { font-size: 1.35rem; }
+    .chat-bubble { max-width: 88%; }
+}
